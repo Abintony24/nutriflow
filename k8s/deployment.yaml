@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nutriflow
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nutriflow
+  template:
+    metadata:
+      labels:
+        app: nutriflow
+    spec:
+      containers:
+        - name: nutriflow
+          image: 504483085764.dkr.ecr.us-east-1.amazonaws.com/nutriflow:latest
+          ports:
+            - containerPort: 8000
