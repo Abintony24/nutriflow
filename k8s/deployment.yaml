@@ -15,6 +15,11 @@ spec:
       containers:
         - name: nutriflow
           image: 504483085764.dkr.ecr.us-east-1.amazonaws.com/nutriflow:latest
-          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8000
+          env:
+            - name: MONGO_URI
+              valueFrom:
+                secretKeyRef:
+                  name: nutriflow-secret
+                  key: MONGO_URI
