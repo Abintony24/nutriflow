@@ -12,9 +12,12 @@ spec:
       labels:
         app: nutriflow
     spec:
+      imagePullSecrets:
+        - name: ecr-secret
       containers:
         - name: nutriflow
           image: 504483085764.dkr.ecr.us-east-1.amazonaws.com/nutriflow:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 8000
           env:
@@ -23,3 +26,5 @@ spec:
                 secretKeyRef:
                   name: nutriflow-secret
                   key: MONGO_URI
+            - name: PORT
+              value: "8000"
