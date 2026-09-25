@@ -10,12 +10,16 @@ pipeline {
 
         stage('SonarQube Analysis') {
             steps {
-                withSonarQubeEnv('sonarqube') {
-                    sh '''
-                        sonar-scanner \
-                        -Dsonar.projectKey=nutriflow \
-                        -Dsonar.sources=backend,frontend
-                    '''
+                script {
+                    def scannerHome = tool 'SonarScanner'
+
+                    withSonarQubeEnv('sonarqube') {
+                        sh """
+                            ${scannerHome}/bin/sonar-scanner \
+                            -Dsonar.projectKey=nutriflow \
+                            -Dsonar.sources=backend,frontend
+                        """
+                    }
                 }
             }
         }
