@@ -24,10 +24,7 @@ api.interceptors.request.use((config) => {
 const inFlightGetRequests = new Map();
 
 export const dedupedGet = (url, config = {}) => {
-  // Don't share promises when an AbortSignal is present — sharing across
-  // callers means one caller's abort poisons the other's fetch.
-  // Also skip dedup when a timeout is specified, since different timeouts
-  // should not share the same in-flight promise.
+
   if (config.signal || config.timeout) {
     return api.get(url, config);
   }
