@@ -1,11 +1,8 @@
 import axios from 'axios'
 
-export const API_BASE_URL = 'http://localhost:8000/nutriflow/auth'
+const API_BASE_URL = `${import.meta.env.VITE_API_URL || 'http://localhost:8000/nutriflow'}`
 
-/**
- * Fetch authenticated user profile
- * GET /nutriflow/auth/profile
- */
+
 export const fetchUserProfile = async (token) => {
   const authToken = token || localStorage.getItem('nutriflow_token')
   if (!authToken) throw new Error('No authentication token found')

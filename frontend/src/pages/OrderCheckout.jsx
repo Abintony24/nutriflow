@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import  { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowLeft, ArrowRight, CheckCircle2, ShieldCheck, Truck, CreditCard as SmartphoneIcon, Check, RefreshCw, X, Sparkles, AlertCircle } from 'lucide-react'
 import axios from 'axios'
@@ -60,7 +60,7 @@ const OrderCheckout = ({ setActiveTab, onOpenOTP, cartItems = [], cartQuantities
     }, 3000)
   }
 
-  const API_BASE = "http://localhost:8000/nutriflow"
+const API_BASE = `${import.meta.env.VITE_API_URL || 'http://localhost:8000/nutriflow'}`
 
   const checkAuthToken = () => {
     return localStorage.getItem('nutriflow_token') || localStorage.getItem('token') || localStorage.getItem('auth_token')

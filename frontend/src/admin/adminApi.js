@@ -1,7 +1,7 @@
 import axios from 'axios'
 
-// Mirrors the hardcoded base URL from src/api.js exactly
-const ADMIN_BASE_URL = 'http://localhost:8000/nutriflow'
+
+const ADMIN_BASE_URL = `${import.meta.env.VITE_API_URL || 'http://localhost:8000/nutriflow'}/admin`
 
 const adminApi = axios.create({
   baseURL: ADMIN_BASE_URL,

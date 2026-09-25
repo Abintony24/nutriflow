@@ -1,14 +1,12 @@
 import { useState } from 'react'
 import axios from 'axios'
 
-const BASE = 'http://localhost:8000/nutriflow'
+const BASE = `${import.meta.env.VITE_API_URL || 'http://localhost:8000/nutriflow'}`
 
-// Verified endpoint paths:
-//   Send OTP  → POST /nutriflow/auth        (router.post('/', sendOTP) in authRoutes.js)
-//   Verify    → POST /nutriflow/auth/verify-otp
+
 
 export default function AdminLogin({ onLoginSuccess }) {
-  const [step, setStep] = useState('phone')          // 'phone' | 'otp'
+  const [step, setStep] = useState('phone')         
   const [phone, setPhone] = useState('')
   const [otp, setOtp] = useState('')
   const [verificationId, setVerificationId] = useState('')

@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Target, Crown, Truck, BotMessageSquare, Check, Clock, Sparkles, CheckCircle2 } from "lucide-react"
+import {  CheckCircle2 } from "lucide-react"
 
 import weightGainImg from '../assets/weightgain_Non_img.png'
 import flexibleMembershipImg from '../assets/flexible membership (2).png'
