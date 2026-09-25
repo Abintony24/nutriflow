@@ -15,5 +15,6 @@ spec:
       containers:
         - name: nutriflow
           image: 504483085764.dkr.ecr.us-east-1.amazonaws.com/nutriflow:latest
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8000
